@@ -1,33 +1,16 @@
 # Context WEEK 8
 
-For this week's project, we had to create 2 APIs along with a new table for our postgreSQL database and fake data for the new table. Our first API was made using graphql on Rails and our second API is a REST API with C#. The goal of this week's project was to allow us to get to know a lot more about APIs and how they work. We used ruby on rails, c# for our programing languages along with heroku to host our APIs online and postman to do GET,PUT,POST requests to test our REST API and publish our work for both APIs.
+For this week's project, i added a rest api to my web site. There is one get request and two put request. The get request is for getting all intervention that the status is in pending and 1 put is for starting an intervention and the other one is for ending the intervention. I did a collection post man so every one can test the request.
 
-Link to our Website => https://rocketelevators.cfd/
+Link to our Website => https://rocketelevatorfrancisrenauld.ca/
 
 Link to our Video => https://youtu.be/tKcguiwSwcM
 
-## The following example shows a REST API request with Postman:
-
-### We start by doing a GET to see the status of the battery 5
-
-<img width="1292" alt="image" src="https://user-images.githubusercontent.com/105597570/180489833-b234af98-625d-460c-b889-203ac64efa53.png">
-
-### We then do a PUT to change the status of the battery 5 from "Intervention" to "Active"
-
-<img width="1288" alt="image" src="https://user-images.githubusercontent.com/105597570/180490555-c89cc74e-c4dd-4565-9e48-39dee800fb96.png">
-
-### As you can see, when we do a GET again, the status of the battery 5 changed and is now "Active" 
-
-<img width="1286" alt="image" src="https://user-images.githubusercontent.com/105597570/180490669-85ffcbcc-c926-4675-9757-39847feb04e1.png">
-
-# JSON link for our collection of requests for Postman
+# The following example shows my rest api request with Postman collection:
 ```
-https://www.getpostman.com/collections/69bb0a21411e5a31393b
+![image](https://user-images.githubusercontent.com/106099396/181827583-14fc04ad-4d69-4a15-9045-dd792fe7522f.png)
 ```
----
 
-# Dependencies
+  To test my project, you will need the following :
 
-  To test our project, you will need the following :
-
--   Postman => https://www.postman.com/downloads/
+-   Postman => https://www.getpostman.com/collections/fafff95c5ed01a144568
