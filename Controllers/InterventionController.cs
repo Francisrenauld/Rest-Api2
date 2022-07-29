@@ -98,9 +98,7 @@ namespace RocketElevators.Controllers
             if (_context.interventions == null)
             {
                 return BadRequest();
-            }
-
-            if(interventionID != null)
+            }else
             {
                 interventionID.status = "InProgress";
                 interventionID.start_date_and_time_of_the_intervention = DateTime.Now;
@@ -135,14 +133,14 @@ namespace RocketElevators.Controllers
             if (_context.interventions == null)
             {
                 return BadRequest();
-            }
-
-            if(interventionID != null)
+            } else
             {
-                interventionID.status = "Completed";
+               interventionID.status = "Completed";
                 interventionID.end_date_and_time_of_the_intervention = DateTime.Now;
 
             }
+
+          
         
             try
             {
