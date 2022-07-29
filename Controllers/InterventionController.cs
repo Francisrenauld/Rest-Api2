@@ -26,15 +26,18 @@ namespace RocketElevators.Controllers
         {
           if (_context.interventions == null)
           {
-              return NotFound();
+            return NotFound();
           }
             return await _context.interventions.ToListAsync();
         }
 
+        
+
          // GET: /api/InterventionPending
-         [HttpGet("/api/InterventionPending")]
+        [HttpGet("/api/InterventionPending")]
         public async Task<ActionResult<IEnumerable<Intervention>>> GetInterventionStatusPending()
         {
+            
           if (_context.interventions == null)
           {
               return NotFound();
@@ -55,6 +58,10 @@ namespace RocketElevators.Controllers
             if (intervention == null)
             {
                 return NotFound();
+            }
+              if (intervention == null)
+            {
+                return BadRequest();
             }
 
             return intervention;
@@ -120,7 +127,10 @@ namespace RocketElevators.Controllers
                     throw;
                 }
             }
-
+            if (interventionID == null)
+            {
+                return BadRequest();
+            }
             return Ok(interventionID);
         }
 
@@ -157,7 +167,10 @@ namespace RocketElevators.Controllers
                     throw;
                 }
             }
-
+             if (interventionID == null)
+            {
+                return BadRequest();
+            }
             return Ok(interventionID);
         }
 
