@@ -7,9 +7,19 @@ Link to our Website => https://rocketelevatorfrancisrenauld.ca/
 Link to our Video => https://youtu.be/tKcguiwSwcM
 
 # The following example shows my rest api request with Postman collection:
-```
+
+---
+
 ![image](https://user-images.githubusercontent.com/106099396/181827583-14fc04ad-4d69-4a15-9045-dd792fe7522f.png)
-```
+
+---
+
+![image](https://user-images.githubusercontent.com/106099396/181830094-d6a616d5-8f39-4fbc-9bd8-87dffb514830.png)
+
+---
+
+![image](https://user-images.githubusercontent.com/106099396/181830167-ed94d713-a14d-4b79-9161-caf43c648787.png)
+
 
   To test my project, you will need the following :
 
