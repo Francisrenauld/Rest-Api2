@@ -1,6 +1,6 @@
 # Context WEEK 8
 
-For this week's project, i added a rest api to my web site. There is one get request and two put request. The get request is for getting all intervention that the status is in pending and 1 put is for starting an intervention and the other one is for ending the intervention. I did a collection post man so every one can test the request.
+For this week's project, i added a rest api to my web site. There is one get request and two put request. The get request is for getting all intervention with the status  pending and then 1 put is for starting an intervention and the other one is for ending the intervention. I did a collection post man so every one can test the request.
 
 Link to our Website => https://rocketelevatorfrancisrenauld.ca/
 
