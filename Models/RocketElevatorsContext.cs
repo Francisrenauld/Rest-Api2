@@ -10,7 +10,7 @@ namespace RocketElevators.Models
             : base(options)
         {
         }
-        public DbSet<Customer> customer { get; set; } = null!;
+        public DbSet<Customer> customers { get; set; } = null!;
         public DbSet<Elevator> elevators { get; set; } = null!;
         public DbSet<User> users { get; set; } = null!;
         public DbSet<Column> columns { get; set; } = null!;

@@ -22,24 +22,24 @@ namespace RocketElevators.Controllers
 
         // GET: api/Customer
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> Getcustomer()
+        public async Task<ActionResult<IEnumerable<Customer>>> Getcustomers()
         {
-          if (_context.customer == null)
+          if (_context.customers == null)
           {
               return NotFound();
           }
-            return await _context.customer.ToListAsync();
+            return await _context.customers.ToListAsync();
         }
 
         // GET: api/Customer/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> GetCustomer(long id)
         {
-          if (_context.customer == null)
+          if (_context.customers == null)
           {
               return NotFound();
           }
-            var customer = await _context.customer.FindAsync(id);
+            var customer = await _context.customers.FindAsync(id);
 
             if (customer == null)
             {
@@ -47,6 +47,24 @@ namespace RocketElevators.Controllers
             }
 
             return customer;
+        }
+
+        [HttpGet("/api/email/{Email_Of_The_Company_Contact}")]
+        public async Task<ActionResult<Customer>> GetCustomerEmail(string Email_Of_The_Company_Contact)
+        {
+          if (_context.customers == null)
+          {
+              return NotFound();
+          }
+           
+            var customer = await _context.customers.Where(x => x.Email_Of_The_Company_Contact == Email_Of_The_Company_Contact).Include(b => b.Buildings).ThenInclude(bu => bu.Batteries).ThenInclude(c => c.Columns).ThenInclude(e => e.Elevators).ToListAsync();
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(customer);
         }
 
         // PUT: api/Customer/5
@@ -85,11 +103,11 @@ namespace RocketElevators.Controllers
         [HttpPost]
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
-          if (_context.customer == null)
+          if (_context.customers == null)
           {
-              return Problem("Entity set 'RocketElevatorsContext.customer'  is null.");
+              return Problem("Entity set 'RocketElevatorsContext.customers'  is null.");
           }
-            _context.customer.Add(customer);
+            _context.customers.Add(customer);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
@@ -99,17 +117,17 @@ namespace RocketElevators.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCustomer(long id)
         {
-            if (_context.customer == null)
+            if (_context.customers == null)
             {
                 return NotFound();
             }
-            var customer = await _context.customer.FindAsync(id);
+            var customer = await _context.customers.FindAsync(id);
             if (customer == null)
             {
                 return NotFound();
             }
 
-            _context.customer.Remove(customer);
+            _context.customers.Remove(customer);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -117,7 +135,7 @@ namespace RocketElevators.Controllers
 
         private bool CustomerExists(long id)
         {
-            return (_context.customer?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.customers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
