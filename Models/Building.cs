@@ -18,8 +18,9 @@ namespace RocketElevators.Models
         public long customer_id { get; set; }
 
         public long address_id { get; set; }
-
-        public List<Battery> Batteries { get; set; }
+        
+        public Customer? Customer { get; set; }
+        public List<Battery>? Batteries { get; set; }
 
     }
 }

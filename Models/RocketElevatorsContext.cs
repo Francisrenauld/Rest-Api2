@@ -10,6 +10,7 @@ namespace RocketElevators.Models
             : base(options)
         {
         }
+        public DbSet<Customer> customer { get; set; } = null!;
         public DbSet<Elevator> elevators { get; set; } = null!;
         public DbSet<User> users { get; set; } = null!;
         public DbSet<Column> columns { get; set; } = null!;
@@ -22,10 +23,10 @@ namespace RocketElevators.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            // modelBuilder.Entity<Building>()
-            // .HasMany(b => b.Batteries)
-            // .WithOne();
-
+            modelBuilder.Entity<Building>()
+                .HasOne(p => p.Customer)
+                .WithMany(b => b.Buildings)
+                .HasForeignKey(p => p.customer_id); 
 
             modelBuilder.Entity<Battery>()
                 .HasOne(p => p.Building)
