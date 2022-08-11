@@ -9,7 +9,12 @@ builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.Re
 builder.Services.AddControllers();
 // builder.Services.AddDbContext<RocketElevatorsContext>(opt =>
     // opt.UseInMemoryDatabase("TodoList"));
-
+builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
 builder.Services.AddDbContext<RocketElevatorsContext>(options => {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
