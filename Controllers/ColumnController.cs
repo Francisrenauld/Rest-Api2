@@ -35,7 +35,7 @@ namespace RocketElevators.Controllers
         [HttpGet("/api/Column_By_Battery/{id}")]
         public async Task<ActionResult<Battery>> GetColumnByBattery(long id)
         {
-            if (_context.batteries == null)
+            if (_context.columns == null)
             {
                 return NotFound();
             }
