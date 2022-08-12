@@ -59,7 +59,7 @@ namespace RocketElevators.Controllers
                 return NotFound();
             }
             
-            var entity = _context.batteries.FirstOrDefault(battery => battery.building_id == id);
+            var entity = _context.batteries.Where(battery => battery.building_id == id);
 
             if (entity == null)
             {
