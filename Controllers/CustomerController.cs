@@ -38,7 +38,7 @@ namespace RocketElevators.Controllers
           {
               return NotFound();
           }
-            var customer = await _context.customers.FindAsync(Email_Of_The_Company_Contact);
+            var customer = await _context.customers.ToListAsync();
 
             if (customer == null)
             {
