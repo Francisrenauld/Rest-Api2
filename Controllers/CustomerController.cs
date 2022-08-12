@@ -31,6 +31,23 @@ namespace RocketElevators.Controllers
             return await _context.customers.ToListAsync();
         }
 
+        [HttpGet("/api/Customer_By_Email/{Email_Of_The_Company_Contact}")]
+        public async Task<ActionResult<Customer>> GetCustomer(long id)
+        {
+          if (_context.customers == null)
+          {
+              return NotFound();
+          }
+            var customer = await _context.customers.FindAsync(id);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return customer;
+        }
+
         // GET: api/Customer/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> GetCustomer(long id)
