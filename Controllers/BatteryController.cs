@@ -51,7 +51,7 @@ namespace RocketElevators.Controllers
 
         
         // GET: api/Battery_By_Building/5
-        [HttpGet("{id}")]
+        [HttpGet("/api/Battery_By_Building/{id}")]
         public async Task<ActionResult<Battery>> GetBatteryByBuildings(long id)
         {
             if (_context.batteries == null)
