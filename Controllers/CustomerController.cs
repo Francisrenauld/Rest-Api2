@@ -38,14 +38,14 @@ namespace RocketElevators.Controllers
           {
               return NotFound();
           }
-            var customer = await _context.customers.FindAsync();
+            var customer = await _context.customers.ToListAsync();
 
             if (customer == null)
             {
                 return NotFound();
             }
 
-            return customer;
+            return Ok(customer);
         }
 
         // GET: api/Customer/5
