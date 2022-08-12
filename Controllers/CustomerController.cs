@@ -32,7 +32,7 @@ namespace RocketElevators.Controllers
         }
 
         [HttpGet("/api/Customer_By_Email/{Email_Of_The_Company_Contact}")]
-        public async Task<ActionResult<Customer>> GetCustomer(long id)
+        public async Task<ActionResult<Customer>> GetCustomerByEmail(long id)
         {
           if (_context.customers == null)
           {
