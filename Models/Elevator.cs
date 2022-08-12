@@ -3,6 +3,7 @@ namespace RocketElevators.Models
     public class Elevator
     {
         public long Id { get; set; }
+        public long Serial_Number { get; set; }
         public string? Status { get; set; }
         public string? Model { get; set; }
         public string? Notes { get; set; }
