@@ -32,13 +32,13 @@ namespace RocketElevators.Controllers
         }
 
         [HttpGet("/api/Customer_By_Email/{Email_Of_The_Company_Contact}")]
-        public async Task<ActionResult<Customer>> GetCustomerByEmail(long id)
+        public async Task<ActionResult<Customer>> GetCustomerByEmail(string Email_Of_The_Company_Contact)
         {
           if (_context.customers == null)
           {
               return NotFound();
           }
-            var customer = await _context.customers.FindAsync(id);
+            var customer = await _context.customers.FindAsync(Email_Of_The_Company_Contact);
 
             if (customer == null)
             {
