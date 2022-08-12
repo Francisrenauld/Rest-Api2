@@ -31,6 +31,25 @@ namespace RocketElevators.Controllers
             return await _context.columns.ToListAsync();
         }
 
+        // GET: api/Column_By_Battery/5
+        [HttpGet("/api/Column_By_Battery/{id}")]
+        public async Task<ActionResult<Battery>> GetColumnByBattery(long id)
+        {
+            if (_context.batteries == null)
+            {
+                return NotFound();
+            }
+            
+            var entity = _context.columns.Where(column => column.battery_id == id);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
         // GET: api/Column/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Column>> GetColumn(long id)
