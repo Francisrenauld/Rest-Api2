@@ -33,6 +33,23 @@ namespace RocketElevators.Controllers
             return await _context.buildings.ToListAsync();
         }
 
+        [HttpGet("/api/Building_By_Customer/{id}")]
+        public async Task<ActionResult<Building>> GetBuildingByCustomer(long id)
+        {
+          if (_context.buildings == null)
+          {
+              return NotFound();
+          }
+            var building = await _context.buildings.FindAsync(id);
+
+            if (building == null)
+            {
+                return NotFound();
+            }
+
+            return building;
+        }
+
         // GET: api/Building/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Building>> GetBuilding(long id)
