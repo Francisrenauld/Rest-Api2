@@ -49,6 +49,27 @@ namespace RocketElevators.Controllers
             return Ok(battery.Status);
         }
 
+        
+        // GET: api/Battery_By_Building/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Battery>> GetBatteryByBuildings(long id)
+        {
+            if (_context.batteries == null)
+            {
+                return NotFound();
+            }
+            
+            var entity = _context.batteries.FirstOrDefault(battery => battery.building_id == id);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
+
         // PUT: api/Battery/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}/{status}")]
