@@ -40,14 +40,14 @@ namespace RocketElevators.Controllers
           {
               return NotFound();
           }
-            var building = await _context.buildings.FindAsync(id);
+            var building = await _context.buildings.Where(b => b.customer_id == id).ToListAsync();
 
             if (building == null)
             {
                 return NotFound();
             }
 
-            return building;
+            return Ok(building);
         }
 
         // GET: api/Building/5
